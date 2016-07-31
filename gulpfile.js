@@ -32,5 +32,5 @@ gulp.task('test', function() {
 });
 
 gulp.task('watch', ['test'],  function() {
-    gulp.watch(['./spec/**/*.js', './*.js', 'routes/**/*.js', 'validators/**/*.js'], ['test']);
+    gulp.watch(['./spec/**/*.js', './*.js', 'components/**/*.js'], ['test']);
 });
