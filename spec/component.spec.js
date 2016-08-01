@@ -20,6 +20,19 @@ describe('BeerListContainer', () => {
         const wrapper = shallow(<BeerListContainer/>);
         expect(wrapper.state('beers')).to.eql([]);
     });
+
+    it('should allow items to be added to the list', () => {
+        const wrapper = shallow(<BeerListContainer/>);
+        wrapper.instance().addItem("First list item");
+        expect(wrapper.state('beers')).to.eql(['First list item']);
+    });
+
+    it('passes addItem to InputArea', () => {
+        const wrapper = shallow(<BeerListContainer/>);
+        const inputArea = wrapper.find(InputArea);
+        const addItem = wrapper.instance().addItem;
+        expect(inputArea.prop('onSubmit')).to.eql(addItem);
+    });
 });
 
 

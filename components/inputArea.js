@@ -5,3 +5,7 @@ export class InputArea extends Component {
         return <input/>
     }
 }
+
+InputArea.PropTypes = {
+  onSubmit: React.PropTypes.func.isRequired
+};

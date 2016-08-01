@@ -11,10 +11,16 @@ export class BeerListContainer extends Component {
         };
     }
 
+    addItem(name) {
+        this.setState({
+            beers: [].concat(this.state.beers).concat(name)
+        });
+    }
+
     render() {
         return (
             <div>
-                <InputArea/>
+                <InputArea onSubmit={this.addItem}/>
                 <BeerList/>
                 <Button bsStyle="success">Start</Button>
             </div>
