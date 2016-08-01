@@ -33,6 +33,13 @@ describe('BeerListContainer', () => {
         const addItem = wrapper.instance().addItem;
         expect(inputArea.prop('onSubmit')).to.eql(addItem);
     });
+
+    it('adds an item to the state when InputArea onSubmit called', () =>{
+        const wrapper = shallow(<BeerListContainer/>);
+        const inputArea = wrapper.find(InputArea);
+        inputArea.prop('onSubmit')('MyItem');
+        expect(wrapper.state('beers')).to.eql(['MyItem']);
+    });
 });
 
 
