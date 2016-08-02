@@ -3,6 +3,7 @@ import { expect } from 'chai';
 import { shallow, mount } from 'enzyme';
 import { InputArea } from './../components/inputArea';
 import Setup from './../setup';
+import { spy } from 'sinon';
 
 describe('input area specs', () =>{
     it('should contain an input and a button', () => {
@@ -20,4 +21,16 @@ describe('input area specs', () =>{
         expect(wrapper.state('text')).to.equal('Resin');
         expect(input.prop('value')).to.equal('Resin');
     });
+
+    it('should call onSubmit when add is clicked', () => {
+        const addItemSpy = spy();
+        const wrapper = shallow(<InputArea onSubmit={addItemSpy}/>);
+        wrapper.setState({text: 'Octoberfest'});
+        const addButton = wrapper.find('button');
+
+        addButton.simulate('click');
+
+        expect(addItemSpy.calledOnce).to.equal(true);
+        expect(addItemSpy.calledWith('Octoberfest')).to.equal(true);
+      });
 });
