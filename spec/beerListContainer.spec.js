@@ -1,6 +1,6 @@
 import React from 'react';
 import { expect } from 'chai';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { BeerListContainer } from './../components/beerListContainer';
 import { InputArea } from './../components/inputArea';
 import { BeerList } from './../components/beerList';
@@ -11,8 +11,7 @@ describe('BeerListContainer', () => {
         const wrapper = shallow(<BeerListContainer/>);
         expect(wrapper.containsAllMatchingElements([
             <InputArea/>,
-            <BeerList/>,
-            <Button bsStyle="success">Start</Button>
+            <BeerList/>
         ])).to.equal(true);
     });
 
@@ -39,6 +38,12 @@ describe('BeerListContainer', () => {
         const inputArea = wrapper.find(InputArea);
         inputArea.prop('onSubmit')('MyItem');
         expect(wrapper.state('beers')).to.eql(['MyItem']);
+    });
+    it('renders the items',  () => {
+        const wrapper = mount(<BeerListContainer/>);
+        wrapper.instance().addItem('Anthony');
+        wrapper.instance().addItem('Fred');
+        expect(wrapper.find('li').length).to.equal(2);
     });
 });
 
