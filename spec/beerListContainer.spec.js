@@ -39,6 +39,7 @@ describe('BeerListContainer', () => {
         inputArea.prop('onSubmit')('MyItem');
         expect(wrapper.state('beers')).to.eql(['MyItem']);
     });
+    
     it('renders the items',  () => {
         const wrapper = mount(<BeerListContainer/>);
         wrapper.instance().addItem('Anthony');

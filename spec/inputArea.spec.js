@@ -4,13 +4,14 @@ import { shallow, mount } from 'enzyme';
 import { InputArea } from './../components/inputArea';
 import Setup from './../setup';
 import { spy } from 'sinon';
+import { Button } from 'react-bootstrap'
 
 describe('input area specs', () =>{
     it('should contain an input and a button', () => {
        const wrapper = shallow(<InputArea/>);
         expect(wrapper.containsAllMatchingElements([
             <input/>,
-            <button>Add</button>
+            <Button>Add</Button>
         ])).to.equal(true);
     });
 
@@ -26,7 +27,7 @@ describe('input area specs', () =>{
         const addItemSpy = spy();
         const wrapper = shallow(<InputArea onSubmit={addItemSpy}/>);
         wrapper.setState({text: 'Octoberfest'});
-        const addButton = wrapper.find('button');
+        const addButton = wrapper.find('Button');
 
         addButton.simulate('click');
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'react-bootstrap'
 
 export class InputArea extends Component {
     constructor(props) {
@@ -22,7 +23,7 @@ export class InputArea extends Component {
         return (
             <div>
                 <input value={this.state.text} onChange={this.setText}/>
-                <button onClick={this.handleClick}>Add</button>
+                <Button onClick={this.handleClick}>Add</Button>
             </div>
         )
     }
