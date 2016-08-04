@@ -27,6 +27,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-util": "^3.0.7",
     "jsdom": "^9.4.1",
+    "mockery": "^1.7.0",
     "sinon": "^1.17.5"
   },
   "scripts": {

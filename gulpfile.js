@@ -35,5 +35,5 @@ gulp.task('test', function() {
 });
 
 gulp.task('watch', ['test'],  function() {
-    gulp.watch(['./spec/**/*.js', './*.js', 'components/**/*.js'], ['test']);
+    gulp.watch(['./spec/**/*.js', './*.js', 'components/**/*.js', 'states/**/*.js'], ['test']);
 });

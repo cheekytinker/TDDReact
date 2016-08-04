@@ -1,6 +1,5 @@
-import Redux from 'redux';
 import { expect } from 'chai';
-import { stateHandler } from '../components/stateHandler.js'
+import { stateHandler } from '../states/stateHandler.js'
 
 describe('stateHandler specs', () => {
    it('should add item to list when ADD_ITEM action handled', () => {
