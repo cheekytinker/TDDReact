@@ -19,8 +19,8 @@ export class BeerListContainer extends Component {
         });
     }
 
-    deleteItem(name) {
-        var newBeers = BeerListContainer.removeItemFromArray([].concat(this.state.beers), name);
+    deleteItem(index) {
+        var newBeers = BeerListContainer.removeItemFromArray([].concat(this.state.beers), index);
 
         this.setState({
             beers: newBeers
@@ -31,12 +31,12 @@ export class BeerListContainer extends Component {
         return (
             <div>
                 <InputArea onSubmit={this.addItem}/>
-                <BeerList items={this.state.beers}/>
+                <BeerList onDeleteItem={this.deleteItem} items={this.state.beers}/>
             </div>
         )
     }
 
     static removeItemFromArray(array, item) {
-        return array.filter((i) =>{return i != item} );
+        return array.filter((i, index) =>{return index != item} );
     }
 }

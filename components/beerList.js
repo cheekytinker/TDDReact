@@ -17,7 +17,7 @@ export class BeerList extends Component {
         return this.props.items ? (
             <ul>
                 {this.props.items.map((item, index) => (
-                    <li key={index}>{item}<Button href={"Fred" + index} className="deleteButton" onClick={this.handleDeleteClick.bind(this, index, this.props)}>Delete</Button></li>
+                    <li key={index}>{item}<Button className="deleteButton" onClick={this.handleDeleteClick.bind(this, index, this.props)}>Delete</Button></li>
                 ))}
             </ul>)
         : null;

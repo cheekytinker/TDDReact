@@ -51,8 +51,15 @@ describe('BeerListContainer', () => {
         const wrapper = shallow(<BeerListContainer/>);
         wrapper.instance().addItem('Anthony');
         wrapper.instance().addItem('Fred');
-        wrapper.instance().deleteItem('Fred');
+        wrapper.instance().deleteItem(1);
         expect(wrapper.state('beers')).to.eql(['Anthony']);
+    });
+
+    it('passes deleteItem to BeerList', () => {
+        const wrapper = shallow(<BeerListContainer/>);
+        const beerList = wrapper.find(BeerList);
+        const deleteItem = wrapper.instance().deleteItem;
+        expect(beerList.prop('onDeleteItem')).to.eql(deleteItem);
     });
 
 });
