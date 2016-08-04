@@ -62,6 +62,11 @@ describe('BeerListContainer', () => {
         expect(beerList.prop('onDeleteItem')).to.eql(deleteItem);
     });
 
+    it('should request items from service when componentdidmount', () => {
+        const wrapper = shallow(<BeerListContainer/>);
+
+    });
+
 });
 
 
