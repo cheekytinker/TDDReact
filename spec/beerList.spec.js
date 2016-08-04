@@ -20,4 +20,10 @@ describe('beerlist specs', () => {
         const wrapper = shallow(<BeerList items={items}/>);
         expect(wrapper.find('li')).to.have.length(3);
     });
+
+    it('should render delete button for each item', () => {
+        const items = ['Sam Adams', 'Resin', 'Octoberfest'];
+        const wrapper = shallow(<BeerList items={items}/>);
+        expect(wrapper.find('Button')).to.have.length(3);
+    });
 });

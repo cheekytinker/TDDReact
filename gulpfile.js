@@ -3,7 +3,7 @@ var mocha = require('gulp-mocha');
 var plumber = require('gulp-plumber');
 var gutil = require('gulp-util');
 var babel = require('babel-register');
-
+//var sourcemaps = require('gulp-sourcemaps');
 
 var gulp_src = gulp.src;
 gulp.src = function() {
@@ -20,7 +20,9 @@ gulp.src = function() {
 gulp.task('test', function() {
     var error = false;
     gulp.src('./spec/**/*.js')
+        //.pipe(sourcemaps.init())
         .pipe(mocha({compilers:babel}))
+        //.pipe(sourcemaps.write())
         .on('error', function() {
             console.log('Tests failed!');
             error = true;

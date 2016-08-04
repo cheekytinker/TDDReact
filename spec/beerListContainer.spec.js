@@ -39,13 +39,22 @@ describe('BeerListContainer', () => {
         inputArea.prop('onSubmit')('MyItem');
         expect(wrapper.state('beers')).to.eql(['MyItem']);
     });
-    
+
     it('renders the items',  () => {
         const wrapper = mount(<BeerListContainer/>);
         wrapper.instance().addItem('Anthony');
         wrapper.instance().addItem('Fred');
         expect(wrapper.find('li').length).to.equal(2);
     });
+
+    it('should allow items to be deleted from the list', () => {
+        const wrapper = shallow(<BeerListContainer/>);
+        wrapper.instance().addItem('Anthony');
+        wrapper.instance().addItem('Fred');
+        wrapper.instance().deleteItem('Fred');
+        expect(wrapper.state('beers')).to.eql(['Anthony']);
+    });
+
 });
 
 
