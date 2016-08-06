@@ -22,6 +22,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.11.6",
     "chai": "^3.5.0",
+    "cross-env": "^2.0.0",
     "enzyme": "^2.4.1",
     "eslint-rules-es2015": "^1.0.0",
     "express": "^4.14.0",
@@ -40,8 +41,13 @@
   "scripts": {
     "test": "gulp test",
     "watch": "gulp watch",
-    "start": "node index.js",
-    "start-local": "node server.js"
+    "start": "NODE_ENV=production node index.js",
+    "start-local": "node server.js",
+    "start-production": "node productionServer.js",
+    "clean": "rimraf dist",
+    "build:webpack": "webpack --progress --colors --config webpack.config.prod.js",
+    "build:env": "cross-env NODE_ENV=production",
+    "build": "npm run clean &&  npm run build:env  &&  npm run build:webpack"
   },
   "repository": {
     "type": "git",
