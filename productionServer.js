@@ -1,6 +1,8 @@
 var path = require('path');
 var express = require('express');
 
+console.log("About to setup express");
+
 var port = 3001;
 var app = express();
 app.use(express.static(path.join(__dirname, 'public')));
