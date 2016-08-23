@@ -10,7 +10,7 @@ dependencies:
     - npm install -g webpack
     - webpack --progress --config webpack.config.prod.js
     - docker info
-    - docker build -t cheekytinker/tddreact:latest
+    - docker build -t cheekytinker/tddreact:latest .
 
 deployment:
   development:
