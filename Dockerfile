@@ -6,6 +6,8 @@ WORKDIR /usr/src/app
 
 # Install app dependencies
 COPY package.json /usr/src/app/
+RUN npm install -g webpack
+RUN webpack --progress --config webpack.config.prod.js
 RUN npm install
 
 RUN npm build
